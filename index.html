@@ -204,21 +204,16 @@ tailwind.config = {
 </header>
 
 <!-- ============ HERO ============ -->
-<section id="top" class="relative isolate overflow-hidden">
-  <!-- Hintergrund: Strasse Winterthur -->
-  <img src="assets/img/hero-bg.jpg" alt="Strasse in Winterthur im Abendlicht"
-       class="absolute inset-0 w-full h-full object-cover object-[50%_56%] -z-20" fetchpriority="high">
-  <div class="absolute inset-0 hero-grad -z-10"></div>
-  <!-- Fahrzeug freigestellt (eigener scharfer Layer) -->
-  <img src="assets/img/hero-van.png" alt="Bischof Umzüge Fahrzeug, Winterthur"
-       class="pointer-events-none select-none absolute z-0 bottom-0
-              right-1/2 translate-x-1/2 w-[132%] max-w-none
-              md:right-0 md:translate-x-0 md:w-[72%]
-              lg:w-[57%] lg:max-w-[860px]">
+<section id="top" class="relative isolate bg-ink overflow-hidden min-h-[calc(100svh-4rem)] lg:min-h-[calc(100svh-5rem)] flex flex-col">
+  <!-- Desktop: Bild als Vollfläche -->
+  <img src="assets/img/hero-final.jpg" alt="Bischof Umzüge Fahrzeug auf einer Strasse in Winterthur"
+       class="hidden lg:block absolute inset-0 w-full h-full object-cover object-[62%_50%] -z-10" fetchpriority="high">
+  <div class="hidden lg:block absolute inset-0 hero-grad -z-10"></div>
 
-  <div class="relative z-10 mx-auto max-w-7xl px-5 lg:px-8">
-    <div class="min-h-[calc(100svh-4rem)] lg:min-h-[calc(100svh-5rem)] flex flex-col justify-start lg:justify-center pt-8 lg:pt-10 pb-[42vh] sm:pb-[38vh] md:pb-0">
-      <div class="max-w-xl lg:max-w-[44%]">
+  <!-- Text -->
+  <div class="relative z-10 lg:absolute lg:inset-0 flex flex-col justify-center order-1">
+    <div class="mx-auto max-w-7xl w-full px-5 lg:px-8 pt-10 pb-7 lg:py-0">
+      <div class="max-w-xl lg:max-w-[46%]">
         <p class="kicker text-white/85 flex items-center gap-3">
           <span class="rule-red"></span> Winterthur · seit 1986
         </p>
@@ -243,7 +238,7 @@ tailwind.config = {
           </a>
         </div>
         <!-- Trust row -->
-        <ul class="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-x-6 gap-y-2 text-white/85 text-sm font-500
+        <ul class="mt-7 flex flex-col sm:flex-row sm:flex-wrap gap-x-6 gap-y-2 text-white/85 text-sm font-500
                    [text-shadow:0_1px_10px_rgba(10,11,15,.6)]">
           <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-red rounded-full"></span> ASTAG PLUS zertifiziert</li>
           <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-red rounded-full"></span> Familienbetrieb seit 1986</li>
@@ -251,6 +246,13 @@ tailwind.config = {
         </ul>
       </div>
     </div>
+  </div>
+
+  <!-- Mobile: Bild unten -->
+  <div class="lg:hidden order-2 mt-auto relative">
+    <img src="assets/img/hero-final.jpg" alt="Bischof Umzüge Fahrzeug, Winterthur"
+         class="w-full h-[44svh] object-cover object-[58%_50%]">
+    <div class="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-ink to-transparent"></div>
   </div>
 </section>
 
