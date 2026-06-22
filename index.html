@@ -46,8 +46,8 @@ tailwind.config = {
   .reveal.in{opacity:1;transform:none}
   @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
   .hero-grad{background:
-    linear-gradient(90deg,rgba(16,17,21,.86) 0%,rgba(16,17,21,.58) 34%,rgba(16,17,21,.12) 60%,rgba(16,17,21,0) 80%),
-    linear-gradient(180deg,rgba(16,17,21,.45) 0%,rgba(16,17,21,.12) 30%,rgba(16,17,21,.30) 70%,rgba(16,17,21,.74) 100%)}
+    linear-gradient(90deg,rgba(14,15,19,.92) 0%,rgba(14,15,19,.74) 26%,rgba(14,15,19,.34) 48%,rgba(14,15,19,.04) 66%,rgba(14,15,19,0) 80%),
+    linear-gradient(180deg,rgba(14,15,19,.34) 0%,rgba(14,15,19,.05) 26%,rgba(14,15,19,0) 50%,rgba(14,15,19,.34) 84%,rgba(14,15,19,.6) 100%)}
   .card-img{filter:saturate(.96) contrast(1.02)}
   .svc:hover .card-img{transform:scale(1.05)}
   .card-img{transition:transform .6s cubic-bezier(.22,.61,.36,1)}
@@ -204,41 +204,50 @@ tailwind.config = {
 </header>
 
 <!-- ============ HERO ============ -->
-<section id="top" class="relative isolate">
-  <img src="assets/img/hero-composite.jpg" alt="Bischof Umzüge Fahrzeug auf einer Strasse in Winterthur"
-       class="absolute inset-0 w-full h-full object-cover object-[52%_58%] -z-10" fetchpriority="high">
+<section id="top" class="relative isolate overflow-hidden">
+  <!-- Hintergrund: Strasse Winterthur -->
+  <img src="assets/img/hero-bg.jpg" alt="Strasse in Winterthur im Abendlicht"
+       class="absolute inset-0 w-full h-full object-cover object-[50%_56%] -z-20" fetchpriority="high">
   <div class="absolute inset-0 hero-grad -z-10"></div>
-  <div class="absolute inset-0 noise -z-10 opacity-60"></div>
+  <!-- Fahrzeug freigestellt (eigener scharfer Layer) -->
+  <img src="assets/img/hero-van.png" alt="Bischof Umzüge Fahrzeug, Winterthur"
+       class="pointer-events-none select-none absolute z-0 bottom-0
+              right-1/2 translate-x-1/2 w-[132%] max-w-none
+              md:right-0 md:translate-x-0 md:w-[72%]
+              lg:w-[57%] lg:max-w-[860px]">
 
-  <div class="mx-auto max-w-7xl px-5 lg:px-8">
-    <div class="min-h-[calc(100svh-4rem)] lg:min-h-[calc(100svh-5rem)] flex flex-col justify-center py-10">
-      <div class="max-w-3xl">
+  <div class="relative z-10 mx-auto max-w-7xl px-5 lg:px-8">
+    <div class="min-h-[calc(100svh-4rem)] lg:min-h-[calc(100svh-5rem)] flex flex-col justify-start lg:justify-center pt-8 lg:pt-10 pb-[42vh] sm:pb-[38vh] md:pb-0">
+      <div class="max-w-xl lg:max-w-[44%]">
         <p class="kicker text-white/85 flex items-center gap-3">
           <span class="rule-red"></span> Winterthur · seit 1986
         </p>
         <h1 class="font-display font-800 text-white tracking-tightest leading-[0.98] mt-5
-                   text-[2.7rem] sm:text-6xl lg:text-7xl">
+                   text-[2.6rem] sm:text-5xl lg:text-6xl xl:text-7xl
+                   [text-shadow:0_2px_24px_rgba(10,11,15,.55)]">
           Ihr Umzugswunsch<br>ist unsere <span class="text-red">Aufgabe.</span>
         </h1>
-        <p class="mt-6 text-white/85 text-lg lg:text-xl leading-relaxed max-w-2xl">
+        <p class="mt-6 text-white/90 text-base lg:text-lg leading-relaxed max-w-md
+                  [text-shadow:0_1px_12px_rgba(10,11,15,.6)]">
           Privat- und Geschäftsumzüge, Transporte, Möbellift, beheiztes Lagerhaus,
           Klavier- und Spezialtransporte, Packservice und Zügel-Shop —
-          alles aus einer Hand. Ihr zuverlässiger und pflichtbewusster Partner.
+          alles aus einer Hand. Seit 1986.
         </p>
-        <div class="mt-9 flex flex-wrap items-center gap-3">
-          <a href="#kontakt" class="bg-red hover:bg-reddeep text-white font-600 px-7 py-4 rounded-sm transition-colors text-[1.02rem]">
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a href="#kontakt" class="bg-red hover:bg-reddeep text-white font-600 px-7 py-4 rounded-sm transition-colors text-[1.02rem] shadow-xl shadow-black/20">
             Kostenlose Offerte verlangen
           </a>
-          <a href="tel:+41522327200" class="group inline-flex items-center gap-2.5 bg-white/10 hover:bg-white/18 backdrop-blur-sm border border-white/25 text-white font-600 px-6 py-4 rounded-sm transition-colors">
+          <a href="tel:+41522327200" class="group inline-flex items-center gap-2.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/25 text-white font-600 px-6 py-4 rounded-sm transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
             052 232 72 00
           </a>
         </div>
         <!-- Trust row -->
-        <ul class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-white/80 text-sm font-500">
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-red rounded-full"></span> ASTAG PLUS zertifizierter Umzugsbetrieb</li>
+        <ul class="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-x-6 gap-y-2 text-white/85 text-sm font-500
+                   [text-shadow:0_1px_10px_rgba(10,11,15,.6)]">
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-red rounded-full"></span> ASTAG PLUS zertifiziert</li>
           <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-red rounded-full"></span> Familienbetrieb seit 1986</li>
-          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-red rounded-full"></span> Eigenes beheiztes Lagerhaus</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-red rounded-full"></span> Eigenes Lagerhaus</li>
         </ul>
       </div>
     </div>
